@@ -1,6 +1,13 @@
 
 #include <stdio.h>
 #include<stdlib.h>
+int ind(int *arr, int n,int m){
+    for(int i=0;i<m;i++){
+        if(arr[i]== n)
+            return i;
+    }
+    return 0;
+}
 void swap(int *xp, int *yp)
 {
     int temp = *xp;
@@ -31,8 +38,8 @@ void findMaxPrice(int arr[], int index,
 	if (reducedNum == 0)
 	{   sum = 0;
 		for (int i = 0; i < index; i++){
-
-            sum += price[arr[i]-1];
+            int temp = ind(c,arr[i],m);
+            sum += price[temp];
 		}
 			if(sum > max){
                 max = sum;
